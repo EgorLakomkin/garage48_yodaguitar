@@ -105,7 +105,7 @@
 
 
     var canvas =  initCanvas("tabs", 1140 , 320 );
-    setStopCallback(app.stoppedPlaying());
+    setStopCallback(app.stoppedPlaying);
     app.canvas = canvas;
     window.onload = function () {
         MIDI.loadPlugin({
