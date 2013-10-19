@@ -110,7 +110,7 @@
     var canvas =  initCanvas("tabs", 960 , 600 );
     window.onload = function () {
         MIDI.loadPlugin({
-            soundfontUrl: "./soundfont/",
+            soundfontUrl: "static/soundfont/",
             instrument: "acoustic_grand_piano",
             callback: function() {
                 setInterval(draw, 10 , canvas);
