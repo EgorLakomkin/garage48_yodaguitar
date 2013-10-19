@@ -41,10 +41,22 @@
 
     <div>
         <img src="/static/img/logo.png"/><img src="/static/img/yoda.png"/>
+
+        <script type="text/javascript">(function() {
+            if (window.pluso)if (typeof window.pluso.start == "function") return;
+            if (window.ifpluso==undefined) { window.ifpluso = 1;
+                var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+                s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+                s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
+                var h=d[g]('body')[0];
+                h.appendChild(s);
+            }})();</script>
+        <div class="pluso pull-right" data-background="transparent" data-options="small,square,line,horizontal,counter,theme=07" data-services="vkontakte,odnoklassniki,facebook,twitter,google,moimir,email,print"></div>
+
     </div>
     <div class="tabulature"  height="280px">
         <!--<img src="./img/yodaguitar1.jpg" height="320px" width="100%"/>-->
-        <canvas id = "tabs" width="1140" height="280" style="background: #222"></canvas>
+        <canvas id = "tabs" width="1140" height="320" style="background: #222"></canvas>
     </div>
     <div class="audio-controls" align="center" margin="15px">
         <!--<div class="btn-group" margin-top="15px">-->
@@ -53,7 +65,6 @@
             <!--<button type="button" class="btn btn-default">Reset</button>-->
         <!--</div>-->
         <img src="/static/img/play.png" alt="..." id="play-btn" class="img-rounded play-control">
-
 
     </div>
     <!--<div class="list-group exersise-list">-->
@@ -86,6 +97,7 @@
                     ? "/static/img/refresh.png"
                     : "/static/img/play.png";
             {
+
                 var image=$(this);
                 $(this).fadeOut('fast', function(){
                     image.attr('src', src);
@@ -103,7 +115,7 @@
 
 <script type="text/javascript" >
 
-    var canvas =  initCanvas("tabs", 1140 , 280 );
+    var canvas =  initCanvas("tabs", 1140 , 320 );
     window.onload = function () {
         MIDI.loadPlugin({
             soundfontUrl: "static/soundfont/",
