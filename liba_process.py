@@ -7,8 +7,8 @@ MAX_FREQ = 880
 FREQ = 44100
 TEMPO = 90
 
-NUMBER_ZEROS = 10
-NUMBER_REGIONS_THRESHOLD = 15
+NUMBER_ZEROS = 6
+NUMBER_REGIONS_THRESHOLD = 30
 
 
 def freq_to_note(f2hz):
@@ -165,7 +165,9 @@ def get_notes_from_file(filename):
   regions = find_continuous_regions(fdata)
   regions = filter( filter_short_regions, regions)  
   for region in regions:
-    print region
+    print len(region)
+    print region[:20]
+    print "================="
   notes = [ region_to_note(region) for region in regions ]
   notes = [note for note in notes if note is not None]
   return notes

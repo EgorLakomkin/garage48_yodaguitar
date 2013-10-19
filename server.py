@@ -10,11 +10,12 @@ UPLOAD_FOLDER = os.path.join( os.path.dirname(os.path.realpath(__file__)), 'wav_
 app = Flask('flaskwp1')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-
+@crossdomain(origin='*') 
 @app.route('/')
 def webprint():
     return render_template('index.html') 
 
+@crossdomain(origin='*') 
 @app.route('/analyze', methods=['GET','POST'])
 def analyze():
   print request.method
@@ -38,7 +39,7 @@ def analyze():
       print notes
       return jsonify(result={"notes": notes})
 	    
-    
+@crossdomain(origin='*') 
 @app.route('/upload_wav', methods=['GET','POST'])
 def uploadwav():
 	print request.method
