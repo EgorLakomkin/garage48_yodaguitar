@@ -42,6 +42,19 @@ Title
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript" src="/static/lib/events.js"></script>
 <script src="/static/recorder.js"></script>
+<script type="text/javascript" src="/static/js/canvas_common.js"></script>
+<script type="text/javascript" src="/static/js/tabulate.js"></script>
+<script src="/static/js/MIDI/AudioDetect.js" type="text/javascript"></script>
+<script src="/static/js/MIDI/LoadPlugin.js" type="text/javascript"></script>
+<script src="/static/js/MIDI/Plugin.js" type="text/javascript"></script>
+<script src="/static/js/MIDI/Player.js" type="text/javascript"></script>
+<script src="/static/js/Window/DOMLoader.XMLHttp.js" type="text/javascript"></script>
+<script src="/static/js/Window/DOMLoader.script.js" type="text/javascript"></script>
+<script src="/static/inc/Base64.js" type="text/javascript"></script>
+<script src="/static/inc/base64binary.js" type="text/javascript"></script>
+
+
+
 <style type="text/css">
   #slider { margin: 10px; }
   #recordingslist audio { display: block; margin-bottom: 10px; }
@@ -60,7 +73,7 @@ function output(str) {
 
 // Events
 // init() once the page has finished loading.
-window.onload = init;
+//window.onload = init;
 
 var context;
 var source;
@@ -88,11 +101,21 @@ function gotStream(stream) {
     s = stream;
     initAudio(stream);
 }
-
+/*
 function init() {
+    
     getUserMedia({audio:true}, gotStream);
-}
 
+    MIDI.loadPlugin({
+	  soundfontUrl: "/static/soundfont/",
+	  instrument: "acoustic_grand_piano",
+	  callback: function() {
+		  setInterval(draw, 10 , canvas);
+
+	  }
+  });
+}
+*/
 function initAudio(stream) {
     context = new webkitAudioContext();
     
@@ -114,6 +137,8 @@ function startRecording(button) {
     recorder && recorder.record();
     button.disabled = true;
     button.nextElementSibling.disabled = false;
+
+    setInterval(draw, 10 , canvas);
   }
 
   function stopRecording(button) {
@@ -152,7 +177,7 @@ function startRecording(button) {
 		
         $.ajax({
             type: 'POST',
-            url: '/upload_wav',
+            url: '/analyze',
             data: fd,
             processData: false,
             contentType: false
@@ -168,7 +193,20 @@ function startRecording(button) {
 </head>
 
 <body>
+<canvas id = "tabs" width="960" height="600" style="background: #222"></canvas>
+<script>
+  var canvas =  initCanvas("tabs", 960 , 600 );
+  window.onload = function () {
+    getUserMedia({audio:true}, gotStream);
+  
+    MIDI.loadPlugin({
+	  soundfontUrl: "/static/soundfont/",
+	  instrument: "acoustic_grand_piano",
+	  
+  });
+};
 
+</script>
 <div id="controls">
 	<button onclick="startRecording(this);">record</button>
 	<button onclick="stopRecording(this);" disabled>stop</button>
