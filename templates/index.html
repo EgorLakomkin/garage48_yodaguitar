@@ -1,219 +1,125 @@
-
-<!--
-Copyright 2012, Google Inc.
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are
-met:
-
-    * Redistributions of source code must retain the above copyright
-notice, this list of conditions and the following disclaimer.
-    * Redistributions in binary form must reproduce the above
-copyright notice, this list of conditions and the following disclaimer
-in the documentation and/or other materials provided with the
-distribution.
-    * Neither the name of Google Inc. nor the names of its
-contributors may be used to endorse or promote products derived from
-this software without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-  "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<title>
-Title
-</title>
+    <title>YoDaGuitar Prototype</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="./dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="./dist/css/joda_css.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../../assets/js/html5shiv.js"></script>
+    <script src="../../assets/js/respond.min.js"></script>
 
-  <script src="/static/js/jquery.min.js"></script>
-  <script type="text/javascript" src="/static/lib/events.js"></script>
-  <script src="/static/recorder.js"></script>
-  <script type="text/javascript" src="/static/js/canvas_common.js"></script>
-  <script type="text/javascript" src="/static/js/tabulate.js"></script>
-  <script src="/static/js/MIDI/AudioDetect.js" type="text/javascript"></script>
-  <script src="/static/js/MIDI/LoadPlugin.js" type="text/javascript"></script>
-  <script src="/static/js/MIDI/Plugin.js" type="text/javascript"></script>
-  <script src="/static/js/MIDI/Player.js" type="text/javascript"></script>
-  <script src="/static/js/Window/DOMLoader.XMLHttp.js" type="text/javascript"></script>
-  <script src="/static/js/Window/DOMLoader.script.js" type="text/javascript"></script>
-  <script src="/static/inc/Base64.js" type="text/javascript"></script>
-  <script src="/static/inc/base64binary.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="./js/canvas_common.js"></script>
+    <!--	<script type="text/javascript" src="./js/jquery-1.10.2.min.js" /> -->
+    <script type="text/javascript" src="./js/tabulate.js"></script>
+    <script src="./js/MIDI/AudioDetect.js" type="text/javascript"></script>
+    <script src="./js/MIDI/LoadPlugin.js" type="text/javascript"></script>
+    <script src="./js/MIDI/Plugin.js" type="text/javascript"></script>
+    <script src="./js/MIDI/Player.js" type="text/javascript"></script>
+    <script src="./js/Window/DOMLoader.XMLHttp.js" type="text/javascript"></script>
+    <script src="./js/Window/DOMLoader.script.js" type="text/javascript"></script>
+    <!-- extras -->
+    <script src="./inc/Base64.js" type="text/javascript"></script>
+    <script src="./inc/base64binary.js" type="text/javascript"></script>
+</head>
+<body>
 
 
+<div class="container">
+    <!--<div class="header">-->
+        <!--&lt;!&ndash;<ul class="nav nav-pills pull-right">-->
+            <!--<li class="active"><a href="#">Home</a></li>-->
+            <!--<li><a href="#">About</a></li>-->
+            <!--<li><a href="#">Contact</a></li>-->
+        <!--</ul>&ndash;&gt;-->
+        <!--<h3 class="text-muted"><img src="dist/img/logo.png"/><img src="dist/img/joda.png"/></h3>-->
+    <!--</div>-->
+    <div class="jumbotron welcome-word">
+        <h1>Start practicing now</h1>
+        <p class="lead">Some practice will help you to better</p>
+        <p><a class="btn btn-lg btn-success" href="#">Sign up today</a></p>
+    </div>
+    <div>
+        <img src="./dist/img/logo.png"/><img src="./dist/img/yoda.png"/>
+    </div>
+    <div class="tabulature" height="320px">
+        <!--<img src="./dist/img/yodaguitar1.jpg" height="320px" width="100%"/>-->
+        <canvas id = "tabs" width="960" height="600" style="background: #222"></canvas>
+    </div>
+    <div class="audio-controls" align="center" margin="15px">
+        <!--<div class="btn-group" margin-top="15px">-->
+            <!--<button type="button" class="btn btn-default">Stop</button>-->
+            <!--<button type="button" class="btn btn-default">Play</button>-->
+            <!--<button type="button" class="btn btn-default">Reset</button>-->
+        <!--</div>-->
+        <img src="./dist/img/play.png" alt="..." id="play-btn" class="img-rounded play-control">
 
-<style type="text/css">
-  #slider { margin: 10px; }
-  #recordingslist audio { display: block; margin-bottom: 10px; }
-</style>
 
+    </div>
+    <!--<div class="list-group exersise-list">-->
+        <!--<a href="#" class="list-group-item">Example one<span class="badge" style="background-color: #4fc46b">Simple</span></a>-->
+        <!--<a href="#" class="list-group-item">Example two<span class="badge" style="background-color: #d5b54e">Medium</span></a>-->
+        <!--<a href="#" class="list-group-item">Example three<span class="badge" style="background-color: #e84f61">God like</span></a>-->
+    <!--</div> class="table"-->
+    <table  class="table">
+        <thead>
+        <tr class="exersise-item"><td id="top-left"> </td><td style="color: #45bbdf">LESSON</td><td style="color: #45bbdf" id="top-right">COMPLEXITY</td></tr>
+        </thead>
+        <tr class="exersise-item"><td>1</td><td>Example one</td><td style="color: #4fc46b">Easy</td></tr>
+        <tr class="exersise-item"><td>2</td><td>Example two</td><td style="color: #d5b54e">Average</td></tr>
+        <tr class="exersise-item"><td id="bottom-left">3</td><td>Example three</td><td id="bottom-right" style="color: #e84f61">God like</td></tr>
+    </table>
+</div>
 
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="http://code.jquery.com/jquery.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../static/dist/js/bootstrap.min.js"></script>
 
-<!-- Our javascript code -->
 <script type="text/javascript">
 
+    $( document ).ready(function() {
 
+        $("#play-btn").on({"click":function(event){
 
-function output(str) {
-    console.log(str);
-}
-
-// Events
-// init() once the page has finished loading.
-//window.onload = init;
-
-var context;
-var source;
-var analyser;
-var buffer;
-var audioBuffer;
-var recorder;
-var analyserView1;
-
-function error() {
-    alert('Stream generation failed.');
-    finishJSTest();
-}
-
-function getUserMedia(dictionary, callback) {
-    try {
-        navigator.webkitGetUserMedia(dictionary, callback, error);
-    } catch (e) {
-        alert('webkitGetUserMedia threw exception :' + e);
-        finishJSTest();
-    }
-}
-
-function gotStream(stream) {
-    s = stream;
-    initAudio(stream);
-}
-/*
-function init() {
-    
-    getUserMedia({audio:true}, gotStream);
-
-    MIDI.loadPlugin({
-	  soundfontUrl: "/static/soundfont/",
-	  instrument: "acoustic_grand_piano",
-	  callback: function() {
-		  setInterval(draw, 10 , canvas);
-
-	  }
-  });
-}
-*/
-function initAudio(stream) {
-    context = new webkitAudioContext();
-    
-    analyser = context.createAnalyser();
-    analyser.fftSize = 2048;
-
-    // Connect audio processing graph:
-    // live-input -> analyser -> destination
-
-    // Create an AudioNode from the stream.
-    var mediaStreamSource = context.createMediaStreamSource(stream);    
-    mediaStreamSource.connect(analyser);
-    analyser.connect(context.destination);
-    recorder = new Recorder(mediaStreamSource);
-}
-
-
-function startRecording(button) {
-    recorder && recorder.record();
-    button.disabled = true;
-    button.nextElementSibling.disabled = false;
-
-    setInterval(draw, 10 , canvas);
-  }
-
-  function stopRecording(button) {
-    recorder && recorder.stop();
-    button.disabled = true;
-    button.previousElementSibling.disabled = false;
-    
-	recorder.exportWAV(function(blob) {
-      var url = URL.createObjectURL(blob);
-      var li = document.createElement('li');
-      var au = document.createElement('audio');
-      var hf = document.createElement('a');
-      
-      au.controls = true;
-      au.src = url;
-      hf.href = url;
-	 
-      hf.download = new Date().toISOString() + '.wav';
-      hf.innerHTML = hf.download;
-      li.appendChild(au);
-      li.appendChild(hf);
-      recordingslist.appendChild(li);
-	  upload(blob, hf.download); 
-    });
-  
-    
-    recorder.clear();
-  }
-
-  function upload(blobOrFile, filename) {
-    var fd = new FormData();
-        fd.append('fname', filename);
-        fd.append('data', blobOrFile);
-		
-        $.ajax({
-            type: 'POST',
-            url: '/analyze',
-            data: fd,
-            processData: false,
-            contentType: false
-        }).done(function(data) {
-            // print the output from the upload.php script
-            console.log(data);
+            var src = ($(this).attr('src') === "./dist/img/play.png")
+                    ? "./dist/img/refresh.png"
+                    : "./dist/img/play.png";
+            {
+                var image=$(this);
+                $(this).fadeOut('fast', function(){
+                    image.attr('src', src);
+                    image.fadeIn('fast');
+                })
+            //$(this).attr('src', src);
+            }
+        }
         });
-}
-  
+    });
+
+
 
 </script>
 
-</head>
+<script type="text/javascript" >
 
-<body>
-<canvas id = "tabs" width="960" height="600" style="background: #222"></canvas>
-<script>
-  var canvas =  initCanvas("tabs", 960 , 600 );
-  window.onload = function () {
-    getUserMedia({audio:true}, gotStream);
-  
-    MIDI.loadPlugin({
-	  soundfontUrl: "/static/soundfont/",
-	  instrument: "acoustic_grand_piano",
-	  callback:function()
-	  {
+    var canvas =  initCanvas("tabs", 960 , 600 );
+    window.onload = function () {
+        MIDI.loadPlugin({
+            soundfontUrl: "./soundfont/",
+            instrument: "acoustic_grand_piano",
+            callback: function() {
+                setInterval(draw, 10 , canvas);
 
-	  }
-  });
-};
-
+            }
+        });
+    };
+    //drawGrid(canvas);
 </script>
-<div id="controls">
-	<button onclick="startRecording(this);">record</button>
-	<button onclick="stopRecording(this);" disabled>stop</button>
-</div>
-<h2>Recordings</h2>
-  <ul id="recordingslist"></ul>
 
 </body>
 </html>
