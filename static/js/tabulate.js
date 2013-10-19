@@ -29,7 +29,7 @@ var dataTemp = JSON.stringify(
 
 var tabsData = parseData(dataTemp);
 var currentTimeShift = 0;
-var isStop = false;				
+var isStop = true;				
 var isShowRes = false;
 function drawNextFrame() {
 	currentFrame++;
@@ -57,6 +57,12 @@ function draw(canvas) {
 		return;
 	}
 	*/
+	
+	if(currentFrame > dataTabs.length) {
+		isStop = 1;
+		stopCallback();
+		return;
+	}
 	drawTab(canvas);								
 }
 
@@ -84,6 +90,7 @@ function drawTab(canvas) {
 	var maxH = 320;
 	h = h > maxH ? maxH : h;
 	var y = 0;
+
 	ctx.beginPath();
 	ctx.moveTo(x-wN, y);
 	ctx.lineTo(x+wN, y);
@@ -132,8 +139,6 @@ function drawEndBar(x) {
 	h = h > maxH ? maxH : h;
 
 	var y = h / 12 ;
-	
-	ctx.fillStyle("#2aff00");
 	ctx.moveTo(x-wN, y);
 	ctx.lineTo(x+wN, y);
 	ctx.lineTo(x+wN, y+9*y);
@@ -227,6 +232,7 @@ function playSong() {
 }
 function stopSong() {
 	isStop = true;	
+	stopCallback();
 }
 function showResult() {
 	var w = canvas.width;
@@ -281,5 +287,8 @@ function showResult() {
 			drawNote(tabsData.data.data[i].timeshift / deltaW , deltaH * parseInt( tabsData.data.data[i].info.string) , tabsData.data.data[i].info.position, -1 );
 		}
 	}
-	
+}
+var stopCallback ;
+function setStopCallback(callback){
+	stopCallback = callback;
 }
