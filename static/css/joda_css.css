@@ -9,9 +9,9 @@ body {
     /*border-color: #2f2f2f;*/
 /*}*/
 
-/*.pluso {*/
-    /*right: 0px;*/
-/*}*/
+.pluso {
+    margin-top: 50px;
+}
 
 .exersise-item {
     background-color: #2f2f2f ;
