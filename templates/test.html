@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html style="color:white;background:#111;">
+        <head>
+                <meta charset="utf-8" />
+                <title>Gui</title>
+        </head>
+        <body>
+                <canvas id = "tabs" width="960" height="600" style="background: #222"></canvas>
+                <script type="text/javascript" src="./js/canvas_common.js"></script>
+			<!--	<script type="text/javascript" src="./js/jquery-1.10.2.min.js" /> -->
+				<script type="text/javascript" src="./js/tabulate.js"></script>
+				 <script src="./js/MIDI/AudioDetect.js" type="text/javascript"></script>
+				 <script src="./js/MIDI/LoadPlugin.js" type="text/javascript"></script>
+				 <script src="./js/MIDI/Plugin.js" type="text/javascript"></script>
+				 <script src="./js/MIDI/Player.js" type="text/javascript"></script>
+				 <script src="./js/Window/DOMLoader.XMLHttp.js" type="text/javascript"></script>
+				 <script src="./js/Window/DOMLoader.script.js" type="text/javascript"></script>
+				 <!-- extras -->
+				 <script src="./inc/Base64.js" type="text/javascript"></script>
+				 <script src="./inc/base64binary.js" type="text/javascript"></script>
+
+				<script type="text/javascript" >
+				
+					var canvas =  initCanvas("tabs", 960 , 600 );
+					window.onload = function () {
+						MIDI.loadPlugin({
+							soundfontUrl: "./soundfont/",
+							instrument: "acoustic_grand_piano",
+							callback: function() {
+								setInterval(draw, 10 , canvas);
+					
+							}
+						});
+					};
+					//drawGrid(canvas);
+				</script>
+        </body>
+</html>
