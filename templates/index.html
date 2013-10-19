@@ -25,6 +25,7 @@
     <!-- extras -->
     <script src="/static/inc/Base64.js" type="text/javascript"></script>
     <script src="/static/inc/base64binary.js" type="text/javascript"></script>
+    <script src="/static/js/index_interface.js" type="text/javascript"></script>
 </head>
 <body>
 
@@ -91,22 +92,7 @@
 
     $( document ).ready(function() {
 
-        $("#play-btn").on({"click":function(event){
 
-            var src = ($(this).attr('src') === "/static/img/play.png")
-                    ? "/static/img/refresh.png"
-                    : "/static/img/play.png";
-            {
-
-                var image=$(this);
-                $(this).fadeOut('fast', function(){
-                    image.attr('src', src);
-                    image.fadeIn('fast');
-                })
-            //$(this).attr('src', src);
-            }
-        }
-        });
     });
 
 
@@ -115,7 +101,12 @@
 
 <script type="text/javascript" >
 
+
+
+
     var canvas =  initCanvas("tabs", 1140 , 320 );
+    setStopCallback(app.stoppedPlaying());
+    app.canvas = canvas;
     window.onload = function () {
         MIDI.loadPlugin({
             soundfontUrl: "static/soundfont/",
@@ -125,6 +116,25 @@
 
             }
         });
+
+        $("#play-btn").on({"click":function(event){
+
+            app.onPlayBtnClick();
+//            var src = ($(this).attr('src') === "/static/img/play.png")
+//                    ? "/static/img/refresh.png"
+//                    : "/static/img/play.png";
+//            {
+//
+//                var image=$(this);
+//                $(this).fadeOut('fast', function(){
+//                    image.attr('src', src);
+//                    image.fadeIn('fast');
+//                })
+//                //$(this).attr('src', src);
+//            }
+        }
+        });
+
     };
     //drawGrid(canvas);
 </script>
