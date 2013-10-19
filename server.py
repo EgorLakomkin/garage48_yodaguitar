@@ -1,3 +1,4 @@
+#!-*-coding:utf-8-*-
 from flask import Flask, render_template, jsonify, request
 from werkzeug import secure_filename
 import os
@@ -8,10 +9,134 @@ from datetime import timedelta
 from flask import make_response, request, current_app
 from functools import update_wrapper
 
-dirname, filename = os.path.split(os.path.abspath(__file__))
+root_dirname, root_filename = os.path.split(os.path.abspath(__file__))
 UPLOAD_FOLDER = os.path.join( os.path.dirname(os.path.realpath(__file__)), 'wav_data')
 app = Flask('flaskwp1')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+test_json = [
+    {
+        "id": "1",
+        "info": {
+            "notes": [
+                {
+                    "note": "A",
+                    "octave": "2",
+                    "string": "1",
+                    "position": "5"
+                }
+            ],
+            "type": "note",
+            "timeshift": "2.0"
+        }
+},
+        {
+            "id": "2",
+            "info": {
+                "notes": [
+                    {
+                        "note": "AS",
+                        "octave": "2",
+                        "string": "1",
+                        "position": "6"
+                    }
+                ],
+                "type": "note",
+                "timeshift": "2.5"
+            }
+},
+            {
+                "id": "3",
+                "info": {
+                    "notes": [
+                        {
+                            "note": "B",
+                            "octave": "2",
+                            "string": "1",
+                            "position": "7"
+                        }
+                    ],
+                    "type": "note",
+                    "timeshift": "3.0"
+                }
+},
+                {
+                    "id": "4",
+                    "info": {
+                        "notes": [
+                            {
+                                "note": "C",
+                                "octave": "3",
+                                "string": "1",
+                                "position": "8"
+                            }
+                        ],
+                        "type": "note",
+                        "timeshift": "3.5"
+                    
+}},
+                    {
+                        "id": "6",
+                        "info": {
+                            "notes": [
+                                {
+                                    "note": "E",
+                                    "octave": "2",
+                                    "string": "2",
+                                    "position": "5"
+                                }
+                            ]
+                        },
+                        "type": "note",
+                        "timeshift": "4.0"
+                    }
+,
+                    {
+                        "id": "7",
+                        "info": {
+                            "notes": [
+                                {
+                                    "note": "F",
+                                    "octave": "2",
+                                    "string": "2",
+                                    "position": "6"
+                                }
+                            ],
+                            "type": "note",
+                            "timeshift": "4.5"
+                        }
+},
+                        {
+                            "id": "8",
+                            "info": {
+                                "notes": [
+                                    {
+                                        "note": "FS",
+                                        "octave": "2",
+                                        "string": "2",
+                                        "position": "7"
+                                    }
+                                ],
+                                "type": "note",
+                                "timeshift": "5.0"
+                            }
+},
+                            {
+                                "id": "9",
+                                "info": {
+                                    "notes": [
+                                        {
+                                            "note": "G",
+                                            "octave": "2",
+                                            "string": "2",
+                                            "position": "8"
+                                        }
+                                    ],
+                                    "timeshift": "5.5",
+                                    "type": "note"
+                                }
+                            }
+                        ]
 
 def crossdomain(origin=None, methods=None, headers=None,
                 max_age=21600, attach_to_all=True,
@@ -69,20 +194,26 @@ def analyze():
       file =  request.files[file_id]
       form_filename = request.form['fname']
       target_file = os.path.join(app.config['UPLOAD_FOLDER'],form_filename)
-      filename = secure_filename(target_file)
-      file.save(filename)
+      
+      
+      #filename = secure_filename(target_file)
+      #print "Saved wav", filename
+      #file.save(filename)
       
       #run script
-      filename_result = str(uuid.uuid4()) + "_result.txt"
-      print filename_result
-      logfile = open(filename_result, 'w+')
-      p = subprocess.Popen("aubiopitch -i " + filename, shell=True, stdout = logfile)
-      ret_code = p.wait()
-      logfile.flush()
-      logfile.close()
-      notes = get_notes_from_file( os.path.join(dirname, filename_result) )
-      print notes
-      return jsonify(result={"notes": notes})
+      #filename_result = str(uuid.uuid4()) + "_result.txt"
+      #print filename_result
+      #logfile = open(filename_result, 'w+')
+      #full_filename = os.path.join(root_dirname, filename)
+      #print "Save fullname", full_filename
+      #p = subprocess.Popen("aubiopitch -i " + full_filename, shell=True, stdout = logfile)
+      #ret_code = p.wait()
+      #logfile.flush()
+      #logfile.close()
+      #notes = get_notes_from_file( os.path.join(root_dirname, filename_result) )
+      #print notes
+      #return jsonify(result={"notes": notes})
+      return jsonify(result=test_json)
 	    
 @crossdomain(origin='*') 
 @app.route('/upload_wav', methods=['GET','POST'])
