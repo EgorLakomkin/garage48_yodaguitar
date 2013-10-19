@@ -38,6 +38,9 @@ app = {
         if(app.playerState == 1){
             stopSong();
         }
+    },
+    test:function(){
+     alert("sdfsdf");
     }
 
 }
