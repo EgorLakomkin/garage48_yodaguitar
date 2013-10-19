@@ -38,17 +38,13 @@
         <!--</ul>&ndash;&gt;-->
         <!--<h3 class="text-muted"><img src="img/logo.png"/><img src="img/joda.png"/></h3>-->
     <!--</div>-->
-    <div class="jumbotron welcome-word">
-        <h1>Start practicing now</h1>
-        <p class="lead">Some practice will help you to better</p>
-        <p><a class="btn btn-lg btn-success" href="#">Sign up today</a></p>
-    </div>
+
     <div>
         <img src="/static/img/logo.png"/><img src="/static/img/yoda.png"/>
     </div>
-    <div class="tabulature" height="320px">
+    <div class="tabulature"  height="280px">
         <!--<img src="./img/yodaguitar1.jpg" height="320px" width="100%"/>-->
-        <canvas id = "tabs" width="1140" height="300" style="background: #222"></canvas>
+        <canvas id = "tabs" width="1140" height="280" style="background: #222"></canvas>
     </div>
     <div class="audio-controls" align="center" margin="15px">
         <!--<div class="btn-group" margin-top="15px">-->
@@ -107,7 +103,7 @@
 
 <script type="text/javascript" >
 
-    var canvas =  initCanvas("tabs", 1140 , 300 );
+    var canvas =  initCanvas("tabs", 1140 , 280 );
     window.onload = function () {
         MIDI.loadPlugin({
             soundfontUrl: "static/soundfont/",
