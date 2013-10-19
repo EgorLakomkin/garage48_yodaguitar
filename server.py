@@ -3,11 +3,13 @@ from werkzeug import secure_filename
 import os
 import subprocess
 from liba_process import get_notes_from_file
+import uuid 
 
 dirname, filename = os.path.split(os.path.abspath(__file__))
 UPLOAD_FOLDER = os.path.join( os.path.dirname(os.path.realpath(__file__)), 'wav_data')
 app = Flask('flaskwp1')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 
 @app.route('/')
 def webprint():
@@ -25,9 +27,13 @@ def analyze():
       file.save(filename)
       
       #run script
-      filename_result = filename + ".txt"
+      filename_result = str(uuid.uuid4()) + "_result.txt"
       print filename_result
-      subprocess.Popen("aubiopitch -i " + filename + " > " + filename_result, shell=True)
+      logfile = open(filename_result, 'w+')
+      p = subprocess.Popen("aubiopitch -i " + filename, shell=True, stdout = logfile)
+      ret_code = p.wait()
+      logfile.flush()
+      logfile.close()
       notes = get_notes_from_file( os.path.join(dirname, filename_result) )
       print notes
       return jsonify(result={"notes": notes})
