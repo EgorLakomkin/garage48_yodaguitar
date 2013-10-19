@@ -39,7 +39,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 Title
 </title>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="/static/js/jquery.min.js"></script>
 <script type="text/javascript" src="/static/lib/events.js"></script>
 <script src="/static/recorder.js"></script>
 <script type="text/javascript" src="/static/js/canvas_common.js"></script>
@@ -202,6 +202,7 @@ function startRecording(button) {
 	  instrument: "acoustic_grand_piano",
 	  callback:function()
 	  {
+
 	  }
   });
 };

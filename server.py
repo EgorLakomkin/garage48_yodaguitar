@@ -25,8 +25,10 @@ def analyze():
       file.save(filename)
       
       #run script
-      subprocess.Popen("aubiopitch -i " + filename + " > results.txt", shell=True)
-      notes = get_notes_from_file(os.path.join(dirname,'./results.txt'))
+      filename_result = filename + ".txt"
+      print filename_result
+      subprocess.Popen("aubiopitch -i " + filename + " > " + filename_result, shell=True)
+      notes = get_notes_from_file( os.path.join(dirname, filename_result) )
       print notes
       return jsonify(result={"notes": notes})
 	    

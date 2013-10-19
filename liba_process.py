@@ -7,7 +7,7 @@ MAX_FREQ = 880
 FREQ = 44100
 TEMPO = 90
 
-NUMBER_ZEROS = 5
+NUMBER_ZEROS = 10
 NUMBER_REGIONS_THRESHOLD = 15
 
 
@@ -85,7 +85,7 @@ def freq_to_note(f2hz):
   if f2hz <906.165 and f2hz >853.835: note = {'notes' : [{ 'octave' :'5', 'note' : 'A', 'string' : '1', 'position' : '17'},{ 'octave' :'4', 'note' : 'A', 'string' : '2', 'position' : '22'} ,{ 'octave' :'4', 'note' : 'A', 'string' : '3', 'position' : '26'} ] }
   if f2hz <960.05 and f2hz >904.61: note = {'notes' : [{ 'octave' :'5', 'note' : 'AS', 'string' : '1', 'position' : '18'},{ 'octave' :'4', 'note' : 'AS', 'string' : '2', 'position' : '23'} ,{ 'octave' :'4', 'note' : 'AS', 'string' : '3', 'position' : '27'} ] }
   if f2hz <1017.135 and f2hz >958.405: note = {'notes' : [{ 'octave' :'5', 'note' : 'B', 'string' : '1', 'position' : '19'},{ 'octave' :'4', 'note' : 'B', 'string' : '2', 'position' : '24'}]}
-  if f2hz <1077.615 and f2hz >1015.385: note = {'notes' : [{ 'octave' :'5', 'note' : 'C', 'string' : '1', 'position' : '20'},{ 'octave' :'4', 'note' : 'B', 'string' : '2', 'position' : '25'}]}
+  if f2hz <1077.615 and f2hz >1015.385: note = {'notes' : [{ 'octave' :'5', 'note' : 'C', 'string' : '1', 'position' : '20'},{ 'octave' :'4', 'note' : 'C', 'string' : '2', 'position' : '25'}]}
   if f2hz <1141.695 and f2hz >1075.765: note = {'notes' : [{ 'octave' :'5', 'note' : 'CS', 'string' : '1', 'position' : '21'}]}
   if f2hz <1209.585 and f2hz >1139.735: note =  {'notes' : [{ 'octave' :'5', 'note' : 'D', 'string' : '1', 'position' : '22'}]}
   if f2hz <1281.51 and f2hz >1207.51: note = {'notes' : [{ 'octave' :'5', 'note' : 'DS', 'string' : '1', 'position' : '23'}]}
@@ -164,6 +164,8 @@ def get_notes_from_file(filename):
   #fdata = filter( filter_silence, fdata )
   regions = find_continuous_regions(fdata)
   regions = filter( filter_short_regions, regions)  
+  for region in regions:
+    print region
   notes = [ region_to_note(region) for region in regions ]
   notes = [note for note in notes if note is not None]
   return notes
