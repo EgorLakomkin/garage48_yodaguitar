@@ -2,7 +2,9 @@ from flask import Flask, render_template, jsonify, request
 from werkzeug import secure_filename
 import os
 import subprocess
+from liba_process import get_notes_from_file
 
+dirname, filename = os.path.split(os.path.abspath(__file__))
 UPLOAD_FOLDER = os.path.join( os.path.dirname(os.path.realpath(__file__)), 'wav_data')
 app = Flask('flaskwp1')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -15,6 +17,7 @@ def webprint():
 def analyze():
   print request.method
   if request.method == "POST":
+    for file_id in  request.files:
       file =  request.files[file_id]
       form_filename = request.form['fname']
       target_file = os.path.join(app.config['UPLOAD_FOLDER'],form_filename)
@@ -22,8 +25,9 @@ def analyze():
       file.save(filename)
       
       #run script
-      subprocess.Popen("aubiopitch -i " + target_file + " > results.txt", shell=True)
-      notes = get_notes_from_file('./results.txt')
+      subprocess.Popen("aubiopitch -i " + filename + " > results.txt", shell=True)
+      notes = get_notes_from_file(os.path.join(dirname,'./results.txt'))
+      print notes
       return jsonify(result={"notes": notes})
 	    
     

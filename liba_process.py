@@ -54,12 +54,12 @@ def freq_to_note(f2hz):
   if f2hz <151.195 and f2hz >142.465: note = 'D3'
   if f2hz <160.185 and f2hz >150.935: note = 'DS3'
   if f2hz <169.71 and f2hz >159.91: note = 'E3'
-  if f2hz <179.805 and f2hz >169.415: note = {'notes' : [{ 'octave' :'3', 'note' : 'F', 'string' : '4', 'position' : '3'}] }
-  if f2hz <190.5 and f2hz >179.5: note = 'FS3'
-  if f2hz <201.825 and f2hz >190.175: note = 'G3'
-  if f2hz <213.825 and f2hz >201.475: note = 'GS3'
-  if f2hz <226.54 and f2hz >213.46: note = 'A3'
-  if f2hz <240.01 and f2hz >226.15: note = 'AS3'
+  if f2hz <179.805 and f2hz >169.415: note = {'notes' : [{ 'octave' :'3', 'note' : 'F', 'string' : '4', 'position' : '3'}, { 'octave' :'3', 'note' : 'F', 'string' : '5', 'position' : '8'}] }
+  if f2hz <190.5 and f2hz >179.5: note ={'notes' : [{ 'octave' :'3', 'note' : 'FS', 'string' : '4', 'position' : '4'}, { 'octave' :'3', 'note' : 'FS', 'string' : '5', 'position' : '9'}] }
+  if f2hz <201.825 and f2hz >190.175: note = {'notes' : [{ 'octave' :'3', 'note' : 'G', 'string' : '4', 'position' : '5'}, { 'octave' :'3', 'note' : 'G', 'string' : '5', 'position' : '10'}] }
+  if f2hz <213.825 and f2hz >201.475: note = {'notes' : [{ 'octave' :'3', 'note' : 'GS', 'string' : '4', 'position' : '6'}, { 'octave' :'3', 'note' : 'GS', 'string' : '5', 'position' : '11'}] }
+  if f2hz <226.54 and f2hz >213.46: note = {'notes' : [{ 'octave' :'3', 'note' : 'A', 'string' : '4', 'position' : '7'}, { 'octave' :'3', 'note' : 'A', 'string' : '5', 'position' : '12'}] }
+  if f2hz <240.01 and f2hz >226.15: note = {'notes' : [{ 'octave' :'3', 'note' : 'AS', 'string' : '4', 'position' : '8'}, { 'octave' :'3', 'note' : 'AS', 'string' : '5', 'position' : '13'}] }
   if f2hz <254.285 and f2hz >239.595: note = {'notes' : [{ 'octave' :'4', 'note' : 'B', 'string' : '2', 'position' : '0'},{ 'octave' :'4', 'note' : 'B', 'string' : '3', 'position' : '4'}] }
   if f2hz <269.405 and f2hz >253.855: note = {'notes' : [{ 'octave' :'4', 'note' : 'C', 'string' : '2', 'position' : '1'},{ 'octave' :'4', 'note' : 'C', 'string' : '3', 'position' : '5'}] }
   if f2hz <285.42 and f2hz >268.94: note = {'notes' : [{ 'octave' :'4', 'note' : 'CS', 'string' : '2', 'position' : '2'}, { 'octave' :'4', 'note' : 'CS', 'string' : '3', 'position' : '6'}] }
@@ -75,44 +75,44 @@ def freq_to_note(f2hz):
   if f2hz <508.565 and f2hz >479.195: note = {'notes' : [{ 'octave' :'4', 'note' : 'B', 'string' : '1', 'position' : '7'}, { 'octave' :'4', 'note' : 'B', 'string' : '3', 'position' : '16'}] }
   if f2hz <538.81 and f2hz >507.69: note = {'notes' : [{ 'octave' :'4', 'note' : 'C', 'string' : '1', 'position' : '8'}, { 'octave' :'4', 'note' : 'C', 'string' : '3', 'position' : '17'}] }
   if f2hz <570.85 and f2hz >537.89: note = {'notes' : [{ 'octave' :'5', 'note' : 'CS', 'string' : '1', 'position' : '9'},{ 'octave' :'4', 'note' : 'CS', 'string' : '3', 'position' : '18'} ] }
-  if f2hz <604.79 and f2hz >569.87: note = {'notes' : [{ 'octave' :'5', 'note' : 'D', 'string' : '1', 'position' : '10'},{ 'octave' :'4', 'note' : 'CS', 'string' : '3', 'position' : '19'} ] }
-  if f2hz <640.755 and f2hz >603.745: note = 'DS5'
-  if f2hz <678.86 and f2hz >639.66: note = 'E5'
-  if f2hz <719.225 and f2hz >677.695: note = 'F5'
-  if f2hz <761.99 and f2hz >717.99: note = 'FS5'
-  if f2hz <807.3 and f2hz >760.68: note = 'G5'
-  if f2hz <855.305 and f2hz >805.915: note = 'GS5'
-  if f2hz <906.165 and f2hz >853.835: note = 'A5'
-  if f2hz <960.05 and f2hz >904.61: note = 'AS5'
-  if f2hz <1017.135 and f2hz >958.405: note = 'B5'
-  if f2hz <1077.615 and f2hz >1015.385: note = 'C6'
-  if f2hz <1141.695 and f2hz >1075.765: note = 'CS6'
-  if f2hz <1209.585 and f2hz >1139.735: note = 'D6'
-  if f2hz <1281.51 and f2hz >1207.51: note = 'DS6'
-  if f2hz <1357.71 and f2hz >1279.31: note = 'E6'
-  if f2hz <1438.445 and f2hz >1355.375: note = 'F6'
-  if f2hz <1523.98 and f2hz >1435.98: note = 'FS6'
-  if f2hz <1614.6 and f2hz >1521.36: note = 'G6'
-  if f2hz <1710.61 and f2hz >1611.83: note = 'GS6'
-  if f2hz <1812.33 and f2hz >1707.67: note = 'A6'
-  if f2hz <1920.095 and f2hz >1809.225: note = 'AS6'
-  if f2hz <2034.265 and f2hz >1916.795: note = 'B6'
-  if f2hz <2155.23 and f2hz >2030.77: note = 'C7'
-  if f2hz <2283.39 and f2hz >2151.53: note = 'CS7'
-  if f2hz <2419.17 and f2hz >2279.47: note = 'D7'
-  if f2hz <2563.02 and f2hz >2415.02: note = 'DS7'
-  if f2hz <2715.425 and f2hz >2558.615: note = 'E7'
-  if f2hz <2876.895 and f2hz >2710.765: note = 'F7'
-  if f2hz <3047.96 and f2hz >2871.96: note = 'FS7'
-  if f2hz <3229.2 and f2hz >3042.72: note = 'G7'
-  if f2hz <3421.22 and f2hz >3223.66: note = 'GS7'
-  if f2hz <3624.655 and f2hz >3415.345: note = 'A7'
-  if f2hz <3840.19 and f2hz >3618.43: note = 'AS7'
-  if f2hz <4068.54 and f2hz >3833.6: note = 'B7'
-  if f2hz <4310.465 and f2hz >4061.555: note = 'C8'
-  if f2hz <4566.78 and f2hz >4303.06: note = 'CS8'
-  if f2hz <4838.335 and f2hz >4558.945: note = 'D8'
-  if f2hz <2489.015 and f2hz >7467.045: note = 'DS8'
+  if f2hz <604.79 and f2hz >569.87: note = {'notes' : [{ 'octave' :'5', 'note' : 'D', 'string' : '1', 'position' : '10'},{ 'octave' :'4', 'note' : 'D', 'string' : '2', 'position' : '15'} ,{ 'octave' :'4', 'note' : 'D', 'string' : '3', 'position' : '19'} ] }
+  if f2hz <640.755 and f2hz >603.745: note ={'notes' : [{ 'octave' :'5', 'note' : 'DS', 'string' : '1', 'position' : '11'},{ 'octave' :'4', 'note' : 'DS', 'string' : '2', 'position' : '16'} ,{ 'octave' :'4', 'note' : 'DS', 'string' : '3', 'position' : '20'} ] }
+  if f2hz <678.86 and f2hz >639.66: note = {'notes' : [{ 'octave' :'5', 'note' : 'E', 'string' : '1', 'position' : '12'},{ 'octave' :'4', 'note' : 'E', 'string' : '2', 'position' : '17'},{ 'octave' :'4', 'note' : 'E', 'string' : '3', 'position' : '21'} ] }
+  if f2hz <719.225 and f2hz >677.695: note = {'notes' : [{ 'octave' :'5', 'note' : 'F', 'string' : '1', 'position' : '13'},{ 'octave' :'4', 'note' : 'F', 'string' : '2', 'position' : '18'} ,{ 'octave' :'4', 'note' : 'F', 'string' : '3', 'position' : '22'} ] }
+  if f2hz <761.99 and f2hz >717.99: note = {'notes' : [{ 'octave' :'5', 'note' : 'FS', 'string' : '1', 'position' : '14'},{ 'octave' :'4', 'note' : 'FS', 'string' : '2', 'position' : '19'} ,{ 'octave' :'4', 'note' : 'FS', 'string' : '3', 'position' : '23'} ] }
+  if f2hz <807.3 and f2hz >760.68: note = {'notes' : [{ 'octave' :'5', 'note' : 'G', 'string' : '1', 'position' : '15'},{ 'octave' :'4', 'note' : 'G', 'string' : '2', 'position' : '20'} ,{ 'octave' :'4', 'note' : 'G', 'string' : '3', 'position' : '24'} ] }
+  if f2hz <855.305 and f2hz >805.915: note = {'notes' : [{ 'octave' :'5', 'note' : 'GS', 'string' : '1', 'position' : '16'},{ 'octave' :'4', 'note' : 'GS', 'string' : '2', 'position' : '21'} ,{ 'octave' :'4', 'note' : 'GS', 'string' : '3', 'position' : '25'} ] }
+  if f2hz <906.165 and f2hz >853.835: note = {'notes' : [{ 'octave' :'5', 'note' : 'A', 'string' : '1', 'position' : '17'},{ 'octave' :'4', 'note' : 'A', 'string' : '2', 'position' : '22'} ,{ 'octave' :'4', 'note' : 'A', 'string' : '3', 'position' : '26'} ] }
+  if f2hz <960.05 and f2hz >904.61: note = {'notes' : [{ 'octave' :'5', 'note' : 'AS', 'string' : '1', 'position' : '18'},{ 'octave' :'4', 'note' : 'AS', 'string' : '2', 'position' : '23'} ,{ 'octave' :'4', 'note' : 'AS', 'string' : '3', 'position' : '27'} ] }
+  if f2hz <1017.135 and f2hz >958.405: note = {'notes' : [{ 'octave' :'5', 'note' : 'B', 'string' : '1', 'position' : '19'},{ 'octave' :'4', 'note' : 'B', 'string' : '2', 'position' : '24'}]}
+  if f2hz <1077.615 and f2hz >1015.385: note = {'notes' : [{ 'octave' :'5', 'note' : 'C', 'string' : '1', 'position' : '20'},{ 'octave' :'4', 'note' : 'B', 'string' : '2', 'position' : '25'}]}
+  if f2hz <1141.695 and f2hz >1075.765: note = {'notes' : [{ 'octave' :'5', 'note' : 'CS', 'string' : '1', 'position' : '21'}]}
+  if f2hz <1209.585 and f2hz >1139.735: note =  {'notes' : [{ 'octave' :'5', 'note' : 'D', 'string' : '1', 'position' : '22'}]}
+  if f2hz <1281.51 and f2hz >1207.51: note = {'notes' : [{ 'octave' :'5', 'note' : 'DS', 'string' : '1', 'position' : '23'}]}
+  if f2hz <1357.71 and f2hz >1279.31: note = {'notes' : [{ 'octave' :'5', 'note' : 'E', 'string' : '1', 'position' : '24'}]}
+  if f2hz <1438.445 and f2hz >1355.375: note =  {'notes' : [{ 'octave' :'5', 'note' : 'F', 'string' : '1', 'position' : '25'}]}
+  if f2hz <1523.98 and f2hz >1435.98: note = {'notes' : [{ 'octave' :'5', 'note' : 'FS', 'string' : '1', 'position' : '26'}]}
+  if f2hz <1614.6 and f2hz >1521.36: note = {'notes' : [{ 'octave' :'5', 'note' : 'G', 'string' : '1', 'position' : '27'}]}
+  if f2hz <1710.61 and f2hz >1611.83: note = {'notes' : [{ 'octave' :'5', 'note' : 'GS', 'string' : '1', 'position' : '28'}]}
+  if f2hz <1812.33 and f2hz >1707.67: note = {'notes' : [{ 'octave' :'5', 'note' : 'A', 'string' : '1', 'position' : '29'}]}
+  if f2hz <1920.095 and f2hz >1809.225: note = {'notes' : [{ 'octave' :'5', 'note' : 'AS', 'string' : '1', 'position' : '30'}]}
+  if f2hz <2034.265 and f2hz >1916.795: note = {'notes' : [{ 'octave' :'5', 'note' : 'B', 'string' : '1', 'position' : '31'}]}
+  if f2hz <2155.23 and f2hz >2030.77: note = {'notes' : [{ 'octave' :'5', 'note' : 'C', 'string' : '1', 'position' : '32'}]}
+  if f2hz <2283.39 and f2hz >2151.53: note = {'notes' : [{ 'octave' :'5', 'note' : 'CS', 'string' : '1', 'position' : '33'}]}
+  if f2hz <2419.17 and f2hz >2279.47: note = {'notes' : [{ 'octave' :'5', 'note' : 'D', 'string' : '1', 'position' : '34'}]}
+  if f2hz <2563.02 and f2hz >2415.02: note = {'notes' : [{ 'octave' :'5', 'note' : 'DS', 'string' : '1', 'position' : '35'}]}
+  if f2hz <2715.425 and f2hz >2558.615: note = {'notes' : [{ 'octave' :'5', 'note' : 'E', 'string' : '1', 'position' : '36'}]}
+  if f2hz <2876.895 and f2hz >2710.765: note = {'notes' : [{ 'octave' :'5', 'note' : 'F', 'string' : '1', 'position' : '37'}]}
+  if f2hz <3047.96 and f2hz >2871.96: note = {'notes' : [{ 'octave' :'5', 'note' : 'FS', 'string' : '1', 'position' : '38'}]}
+  if f2hz <3229.2 and f2hz >3042.72: note = {'notes' : [{ 'octave' :'5', 'note' : 'G', 'string' : '1', 'position' : '39'}]}
+  if f2hz <3421.22 and f2hz >3223.66: note = {'notes' : [{ 'octave' :'5', 'note' : 'GS', 'string' : '1', 'position' : '40'}]}
+  if f2hz <3624.655 and f2hz >3415.345: note = {'notes' : [{ 'octave' :'5', 'note' : 'A', 'string' : '1', 'position' : '41'}]}
+  if f2hz <3840.19 and f2hz >3618.43: note = {'notes' : [{ 'octave' :'5', 'note' : 'AS', 'string' : '1', 'position' : '42'}]}
+  if f2hz <4068.54 and f2hz >3833.6: note = {'notes' : [{ 'octave' :'5', 'note' : 'B', 'string' : '1', 'position' : '43'}]}
+  if f2hz <4310.465 and f2hz >4061.555: note = {'notes' : [{ 'octave' :'5', 'note' : 'C', 'string' : '1', 'position' : '44'}]}
+  if f2hz <4566.78 and f2hz >4303.06: note = {'notes' : [{ 'octave' :'5', 'note' : 'CS', 'string' : '1', 'position' : '45'}]}
+  if f2hz <4838.335 and f2hz >4558.945: note = {'notes' : [{ 'octave' :'5', 'note' : 'D', 'string' : '1', 'position' : '46'}]}
+  if f2hz <2489.015 and f2hz >7467.045: note = {'notes' : [{ 'octave' :'5', 'note' : 'DS', 'string' : '1', 'position' : '47'}]}
   return note
 
 def filter_silence(data):
@@ -152,9 +152,11 @@ def find_continuous_regions(data):
 def region_to_note(region):
   region_frequency = numpy.median( [reg_data[1] for reg_data in region] )
   note = freq_to_note( region_frequency )
-  timestamp = [reg_data[0] for reg_data in region][5]
-  note['timeshift'] = timestamp
-  return note
+  if note is not None:
+    print note
+    timestamp = [reg_data[0] for reg_data in region][5]
+    note['timeshift'] = timestamp
+    return note
   
   
 def get_notes_from_file(filename):
@@ -163,6 +165,7 @@ def get_notes_from_file(filename):
   regions = find_continuous_regions(fdata)
   regions = filter( filter_short_regions, regions)  
   notes = [ region_to_note(region) for region in regions ]
+  notes = [note for note in notes if note is not None]
   return notes
   
 if __name__ == "__main__":
