@@ -4,8 +4,8 @@
     <title>YoDaGuitar Prototype</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="/static/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="/static/dist/css/joda_css.css" rel="stylesheet" media="screen">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/static/css/joda_css.css" rel="stylesheet" media="screen">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="../../assets/js/html5shiv.js"></script>
@@ -36,7 +36,7 @@
             <!--<li><a href="#">About</a></li>-->
             <!--<li><a href="#">Contact</a></li>-->
         <!--</ul>&ndash;&gt;-->
-        <!--<h3 class="text-muted"><img src="dist/img/logo.png"/><img src="dist/img/joda.png"/></h3>-->
+        <!--<h3 class="text-muted"><img src="img/logo.png"/><img src="img/joda.png"/></h3>-->
     <!--</div>-->
     <div class="jumbotron welcome-word">
         <h1>Start practicing now</h1>
@@ -44,10 +44,10 @@
         <p><a class="btn btn-lg btn-success" href="#">Sign up today</a></p>
     </div>
     <div>
-        <img src="/static/dist/img/logo.png"/><img src="/static/dist/img/yoda.png"/>
+        <img src="/static/img/logo.png"/><img src="/static/img/yoda.png"/>
     </div>
     <div class="tabulature" height="320px">
-        <!--<img src="./dist/img/yodaguitar1.jpg" height="320px" width="100%"/>-->
+        <!--<img src="./img/yodaguitar1.jpg" height="320px" width="100%"/>-->
         <canvas id = "tabs" width="960" height="600" style="background: #222"></canvas>
     </div>
     <div class="audio-controls" align="center" margin="15px">
@@ -56,7 +56,7 @@
             <!--<button type="button" class="btn btn-default">Play</button>-->
             <!--<button type="button" class="btn btn-default">Reset</button>-->
         <!--</div>-->
-        <img src="/static/dist/img/play.png" alt="..." id="play-btn" class="img-rounded play-control">
+        <img src="/static/img/play.png" alt="..." id="play-btn" class="img-rounded play-control">
 
 
     </div>
@@ -78,7 +78,7 @@
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="http://code.jquery.com/jquery.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="../static/dist/js/bootstrap.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
 
@@ -86,9 +86,9 @@
 
         $("#play-btn").on({"click":function(event){
 
-            var src = ($(this).attr('src') === "/static/dist/img/play.png")
-                    ? "/static/dist/img/refresh.png"
-                    : "/static/dist/img/play.png";
+            var src = ($(this).attr('src') === "/static/img/play.png")
+                    ? "/static/img/refresh.png"
+                    : "/static/img/play.png";
             {
                 var image=$(this);
                 $(this).fadeOut('fast', function(){
