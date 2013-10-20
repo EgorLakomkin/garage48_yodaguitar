@@ -15,9 +15,9 @@ app = {
                 image.attr('src', src);
                 image.fadeIn('fast');
             });
-        alert(app.playerState+" start");
+    //    alert(app.playerState+" start");
             //$(this).attr('src', src);
-
+	startRecording();
     },
     stoppedPlaying : function(){//callback from canvas
         app.playerState = 0;
@@ -29,6 +29,7 @@ app = {
                 image.attr('src', src);
                 image.fadeIn('fast');
             });
+      //      alert(app.playerState+" stop");
             $("#ajax-loader").fadeIn(fast);
             //alert(app.playerState+" stop");
 	    stopRecording();

@@ -12,7 +12,8 @@
     <script src="../../assets/js/respond.min.js"></script>
 
     <![endif]-->
-
+    <script src="/static/recorder.js"></script>
+  
     <script type="text/javascript" src="/static/js/canvas_common.js"></script>
     <!--	<script type="text/javascript" src="./js/jquery-1.10.2.min.js" /> -->
     <script type="text/javascript" src="/static/js/tabulate.js"></script>
@@ -170,19 +171,20 @@ function initAudio(stream) {
 
 function startRecording(button) {
     recorder && recorder.record();
-    button.disabled = true;
-    button.nextElementSibling.disabled = false;
+   // button.disabled = true;
+   // button.nextElementSibling.disabled = false;
 
     setInterval(draw, 10 , canvas);
   }
 
   function stopRecording(button) {
     recorder && recorder.stop();
-    button.disabled = true;
-    button.previousElementSibling.disabled = false;
+    //button.disabled = true;
+   // button.previousElementSibling.disabled = false;
     
 	recorder.exportWAV(function(blob) {
       var url = URL.createObjectURL(blob);
+ 
       var li = document.createElement('li');
       var au = document.createElement('audio');
       var hf = document.createElement('a');
@@ -195,7 +197,8 @@ function startRecording(button) {
       hf.innerHTML = hf.download;
       li.appendChild(au);
       li.appendChild(hf);
-      recordingslist.appendChild(li);
+      //recordingslist.appendChild(li);
+
 	  upload(blob, hf.download); 
     });
   
@@ -216,7 +219,11 @@ function startRecording(button) {
             contentType: false
         }).done(function(data) {
             // print the output from the upload.php script
-            console.log(data);
+	    
+	    dataResult = JSON.parse(data.result);
+	    showResult();
+	    isShowRes = true;
+	    console.log(data);
         });
 }
   
@@ -245,7 +252,7 @@ function startRecording(button) {
 
         $("#play-btn").on({"click":function(event){
 
-            app.onPlayBtnClick();
+            app.onPlayBtnClick(stopRecording);
 //            var src = ($(this).attr('src') === "/static/img/play.png")
 //                    ? "/static/img/refresh.png"
 //                    : "/static/img/play.png";
