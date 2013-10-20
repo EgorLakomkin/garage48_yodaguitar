@@ -84,10 +84,30 @@
     </table>
 </div>
 
+<div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Your result is</h4>
+            </div>
+            <div class="modal-body">
+                <img src="/static/img/logo.png" id="resultImage">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="http://code.jquery.com/jquery.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="../static/js/bootstrap.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/modal.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 
@@ -269,6 +289,8 @@ function setFinishLoadingCallbak(callback) {
 //            }
         }
         });
+
+        $('#myModal').modal(options);
 
     };
     //drawGrid(canvas);
