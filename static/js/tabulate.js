@@ -315,7 +315,7 @@ function showResult() {
 			drawNote(tabsData.data.data[i].timeshift / deltaW , deltaH * parseInt( tabsData.data.data[i].info.string) , tabsData.data.data[i].info.position, -1 );
 		}
 	}
-	var obj = { 'score' : resultMetric , 'result': 10000 * (result / maxForSong) };
+	var obj = { 'score' : 10000.0 * (result / maxForSong) , 'result': 0 };
 	if(result > dataResult.data.length) {
 		obj.result = 1;
 	} else {
