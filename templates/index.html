@@ -121,7 +121,7 @@ var analyserView1;
 var finishLoadingCallback;
 function error() {
     alert('Stream generation failed.');
-    finishJSTest();
+ //   finishJSTest();
 }
 
 function getUserMedia(dictionary, callback) {
@@ -129,7 +129,7 @@ function getUserMedia(dictionary, callback) {
         navigator.webkitGetUserMedia(dictionary, callback, error);
     } catch (e) {
         alert('webkitGetUserMedia threw exception :' + e);
-        finishJSTest();
+ //       finishJSTest();
     }
 }
 
@@ -174,7 +174,7 @@ function startRecording(button) {
    // button.disabled = true;
    // button.nextElementSibling.disabled = false;
 
-    setInterval(draw, 10 , canvas);
+    //setInterval(draw, 10 , canvas);
   }
 
   function stopRecording(button) {
