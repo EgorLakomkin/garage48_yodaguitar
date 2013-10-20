@@ -244,6 +244,7 @@ function showResult() {
 	var maxH = 320;
 	h = h > maxH ? maxH : h;
 	var deltaH = h / 8;
+	var result = 0;
 	/*
 	for(var i = 0; i < dataResult.data.length; i++ ) {
 		if(dataResult.data[i].type == "endbar"){
@@ -284,10 +285,16 @@ function showResult() {
 			}
 		}
 		if(thereIsTrue) {
+			result++;
 			drawNote(tabsData.data.data[i].timeshift / deltaW , deltaH * parseInt( tabsData.data.data[i].info.string) , tabsData.data.data[i].info.position, 1 );
 		} else {
 			drawNote(tabsData.data.data[i].timeshift / deltaW , deltaH * parseInt( tabsData.data.data[i].info.string) , tabsData.data.data[i].info.position, -1 );
 		}
+	}
+	if(result > dataResult.data.length) {
+		return 1;
+	} else {
+		return 0;
 	}
 }
 var stopCallback ;

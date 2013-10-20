@@ -141,7 +141,7 @@ var analyserView1;
 var finishLoadingCallback;
 function error() {
     alert('Stream generation failed.');
-    finishJSTest();
+ //   finishJSTest();
 }
 
 function getUserMedia(dictionary, callback) {
@@ -149,7 +149,7 @@ function getUserMedia(dictionary, callback) {
         navigator.webkitGetUserMedia(dictionary, callback, error);
     } catch (e) {
         alert('webkitGetUserMedia threw exception :' + e);
-        finishJSTest();
+ //       finishJSTest();
     }
 }
 
@@ -194,7 +194,7 @@ function startRecording(button) {
    // button.disabled = true;
    // button.nextElementSibling.disabled = false;
 
-    setInterval(draw, 10 , canvas);
+    //setInterval(draw, 10 , canvas);
   }
 
   function stopRecording(button) {
@@ -240,10 +240,10 @@ function startRecording(button) {
         }).done(function(data) {
             // print the output from the upload.php script	    
 			dataResult = data.result;//JSON.parse(data.result);
-			showResult();
+			var result = showResult();
 			isShowRes = true;
 			console.log(data);
-			finishLoadingCallback();
+			finishLoadingCallback(result);
         });
 }
 function setFinishLoadingCallbak(callback) {
