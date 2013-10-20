@@ -245,7 +245,7 @@ function startRecording(button) {
 			var result = showResult();
 			isShowRes = true;
 			console.log(data);
-			finishLoadingCallback(result);
+			finishLoadingCallback(result.result , result.score);
         });
 }
 function setFinishLoadingCallbak(callback) {
