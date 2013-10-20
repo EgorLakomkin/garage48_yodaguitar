@@ -238,6 +238,7 @@ function setFinishLoadingCallbak(callback) {
 
     var canvas =  initCanvas("tabs", 1140 , 320 );
     setStopCallback(app.stoppedPlaying);
+    setFinishLoadingCallbak(app.finishLoading);
     app.canvas = canvas;
     window.onload = function () {
         MIDI.loadPlugin({
