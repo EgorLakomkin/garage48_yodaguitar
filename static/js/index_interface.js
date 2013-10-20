@@ -19,7 +19,7 @@ app = {
             //$(this).attr('src', src);
 	startRecording();
     },
-    stoppedPlaying : function(){//callback from canvas
+    stoppedPlaying : function(playerResult){//callback from canvas
         app.playerState = 0;
         var src = "/static/img/play.png";
         {
@@ -38,6 +38,8 @@ app = {
     },
     finishLoading : function(){
         $("#ajax-loader").fadeOut("fast");
+        $("#resultImage").attr("src","/statix/img/yoda.png");
+        $("#resultModal").modal("show");
     },
     onPlayBtnClick : function(){
 //        if(app.playerState == 0){
