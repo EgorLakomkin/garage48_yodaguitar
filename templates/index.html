@@ -118,7 +118,7 @@ var buffer;
 var audioBuffer;
 var recorder;
 var analyserView1;
-
+var finishLoadingCallback;
 function error() {
     alert('Stream generation failed.');
     finishJSTest();
@@ -198,7 +198,7 @@ function startRecording(button) {
       li.appendChild(au);
       li.appendChild(hf);
       //recordingslist.appendChild(li);
-
+	 	
 	  upload(blob, hf.download); 
     });
   
@@ -218,16 +218,17 @@ function startRecording(button) {
             processData: false,
             contentType: false
         }).done(function(data) {
-            // print the output from the upload.php script
-	    
-	    dataResult = data.result;//JSON.parse(data.result);
-	    showResult();
-	    isShowRes = true;
-	    console.log(data);
+            // print the output from the upload.php script	    
+			dataResult = data.result;//JSON.parse(data.result);
+			showResult();
+			isShowRes = true;
+			console.log(data);
+			finishLoadingCallback();
         });
 }
-  
-
+function setFinishLoadingCallbak(callback) {
+	finishLoadingCallback = callback;
+}
 </script>
 
 <script type="text/javascript" >
