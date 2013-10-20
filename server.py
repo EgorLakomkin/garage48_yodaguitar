@@ -213,7 +213,7 @@ def analyze():
       notes = get_notes_from_file( os.path.join(root_dirname, filename_result) )
       print notes
       #return jsonify(result={"notes": notes})
-      return jsonify(result=test_json)
+      return jsonify(result={"data":notes})
 	    
 @crossdomain(origin='*') 
 @app.route('/upload_wav', methods=['GET','POST'])

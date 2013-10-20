@@ -161,7 +161,7 @@ def freq_to_note(f2hz):
   if f2hz <201.825 and f2hz >190.175: note = {'notes' : [{ 'octave' :'3', 'note' : 'G', 'string' : '4', 'position' : '5'}, { 'octave' :'3', 'note' : 'G', 'string' : '5', 'position' : '10'}] }
   if f2hz <213.825 and f2hz >201.475: note = {'notes' : [{ 'octave' :'3', 'note' : 'GS', 'string' : '4', 'position' : '6'}, { 'octave' :'3', 'note' : 'GS', 'string' : '5', 'position' : '11'}] }
   if f2hz <226.54 and f2hz >213.46: note = {'notes' : [{ 'octave' :'3', 'note' : 'A', 'string' : '4', 'position' : '7'}, { 'octave' :'3', 'note' : 'A', 'string' : '5', 'position' : '12'}] }
-  if f2hz <240.01 and f2hz >226.15: note = {'notes' : [{ 'octave' :'3', 'note' : 'AS', 'string' : '4', 'position' : '8'}, { 'octave' :'3', 'note' : 'AS', 'string' : '5', 'position' : '13'}] }
+  if f2hz <240.01 and f2hz >226.15: note = {'notes' : [{ 'octave' :'3', 'note' : 'Bb', 'string' : '4', 'position' : '8'}, { 'octave' :'3', 'note' : 'Bb', 'string' : '5', 'position' : '13'}] }
   if f2hz <254.285 and f2hz >239.595: note = {'notes' : [{ 'octave' :'4', 'note' : 'B', 'string' : '2', 'position' : '0'},{ 'octave' :'4', 'note' : 'B', 'string' : '3', 'position' : '4'}] }
   if f2hz <269.405 and f2hz >253.855: note = {'notes' : [{ 'octave' :'4', 'note' : 'C', 'string' : '2', 'position' : '1'},{ 'octave' :'4', 'note' : 'C', 'string' : '3', 'position' : '5'}] }
   if f2hz <285.42 and f2hz >268.94: note = {'notes' : [{ 'octave' :'4', 'note' : 'CS', 'string' : '2', 'position' : '2'}, { 'octave' :'4', 'note' : 'CS', 'string' : '3', 'position' : '6'}] }
@@ -173,7 +173,7 @@ def freq_to_note(f2hz):
   if f2hz <403.65 and f2hz >380.35: note = {'notes' : [{ 'octave' :'4', 'note' : 'G', 'string' : '2', 'position' : '8'}, { 'octave' :'4', 'note' : 'G', 'string' : '3', 'position' : '12'}] }
   if f2hz <427.65 and f2hz >402.95: note = {'notes' : [{ 'octave' :'4', 'note' : 'GS', 'string' : '2', 'position' : '9'}, { 'octave' :'4', 'note' : 'GS', 'string' : '3', 'position' : '13'}] }
   if f2hz <453.08 and f2hz >426.92: note = {'notes' : [{ 'octave' :'4', 'note' : 'A', 'string' : '1', 'position' : '5'}, { 'octave' :'4', 'note' : 'A', 'string' : '3', 'position' : '14'}] }
-  if f2hz <480.02 and f2hz >452.3: note = {'notes' : [{ 'octave' :'4', 'note' : 'AS', 'string' : '1', 'position' : '6'}, { 'octave' :'4', 'note' : 'AS', 'string' : '3', 'position' : '15'}] }
+  if f2hz <480.02 and f2hz >452.3: note = {'notes' : [{ 'octave' :'4', 'note' : 'Bb', 'string' : '1', 'position' : '6'}, { 'octave' :'4', 'note' : 'Bb', 'string' : '3', 'position' : '15'}] }
   if f2hz <508.565 and f2hz >479.195: note = {'notes' : [{ 'octave' :'4', 'note' : 'B', 'string' : '1', 'position' : '7'}, { 'octave' :'4', 'note' : 'B', 'string' : '3', 'position' : '16'}] }
   if f2hz <538.81 and f2hz >507.69: note = {'notes' : [{ 'octave' :'4', 'note' : 'C', 'string' : '1', 'position' : '8'}, { 'octave' :'4', 'note' : 'C', 'string' : '3', 'position' : '17'}] }
   if f2hz <570.85 and f2hz >537.89: note = {'notes' : [{ 'octave' :'5', 'note' : 'CS', 'string' : '1', 'position' : '9'},{ 'octave' :'4', 'note' : 'CS', 'string' : '3', 'position' : '18'} ] }
@@ -185,7 +185,7 @@ def freq_to_note(f2hz):
   if f2hz <807.3 and f2hz >760.68: note = {'notes' : [{ 'octave' :'5', 'note' : 'G', 'string' : '1', 'position' : '15'},{ 'octave' :'4', 'note' : 'G', 'string' : '2', 'position' : '20'} ,{ 'octave' :'4', 'note' : 'G', 'string' : '3', 'position' : '24'} ] }
   if f2hz <855.305 and f2hz >805.915: note = {'notes' : [{ 'octave' :'5', 'note' : 'GS', 'string' : '1', 'position' : '16'},{ 'octave' :'4', 'note' : 'GS', 'string' : '2', 'position' : '21'} ,{ 'octave' :'4', 'note' : 'GS', 'string' : '3', 'position' : '25'} ] }
   if f2hz <906.165 and f2hz >853.835: note = {'notes' : [{ 'octave' :'5', 'note' : 'A', 'string' : '1', 'position' : '17'},{ 'octave' :'4', 'note' : 'A', 'string' : '2', 'position' : '22'} ,{ 'octave' :'4', 'note' : 'A', 'string' : '3', 'position' : '26'} ] }
-  if f2hz <960.05 and f2hz >904.61: note = {'notes' : [{ 'octave' :'5', 'note' : 'AS', 'string' : '1', 'position' : '18'},{ 'octave' :'4', 'note' : 'AS', 'string' : '2', 'position' : '23'} ,{ 'octave' :'4', 'note' : 'AS', 'string' : '3', 'position' : '27'} ] }
+  if f2hz <960.05 and f2hz >904.61: note = {'notes' : [{ 'octave' :'5', 'note' : 'Bb', 'string' : '1', 'position' : '18'},{ 'octave' :'4', 'note' : 'Bb', 'string' : '2', 'position' : '23'} ,{ 'octave' :'4', 'note' : 'Bb', 'string' : '3', 'position' : '27'} ] }
   if f2hz <1017.135 and f2hz >958.405: note = {'notes' : [{ 'octave' :'5', 'note' : 'B', 'string' : '1', 'position' : '19'},{ 'octave' :'4', 'note' : 'B', 'string' : '2', 'position' : '24'}]}
   if f2hz <1077.615 and f2hz >1015.385: note = {'notes' : [{ 'octave' :'5', 'note' : 'C', 'string' : '1', 'position' : '20'},{ 'octave' :'4', 'note' : 'C', 'string' : '2', 'position' : '25'}]}
   if f2hz <1141.695 and f2hz >1075.765: note = {'notes' : [{ 'octave' :'5', 'note' : 'CS', 'string' : '1', 'position' : '21'}]}
@@ -256,7 +256,9 @@ def region_to_note(region):
   note = freq_to_note( region_frequency )
   if note is not None:
     if 'notes' in note:
-      note['notes'] = note['notes'][0]
+      note['info'] = note['notes'][0]
+      del note['notes']
+      note['type'] = 'note'
       #note = note[0]
       timestamp = [reg_data[0] for reg_data in region][5]
       note['timeshift'] = timestamp

@@ -15,16 +15,17 @@ var dataTemp = JSON.stringify( { "data" :[
 var dataResult;
 var dataTemp = JSON.stringify( 
 				{ "data" :[
-{"id" : "1" , "info" : {"note" : "A", "octave" : "2", "string":"1", "position": "5" } , "timeshift":"2.0" , "type":"note"  },
-{"id" : "2" , "info" : {"note" : "Bb", "octave" : "2", "string":"1", "position": "6" } , "timeshift":"2.5" , "type":"note"  },
-{"id" : "3" , "info" : {"note" : "B", "octave" : "2", "string":"1", "position": "7" } , "timeshift": "3.0" , "type":"note"  },
-{"id" : "4" , "info" : {"note" : "C", "octave" : "3", "string":"1", "position": "8" }, "timeshift":"3.5" , "type":"note"  },
-{"id" : "5" , "type" : "endbar" , "timeshift" : "3.75"},
+{"id" : "1" , "info" : {"note" : "A", "octave" : "2", "string":"1", "position": "5" } , "timeshift":"4.5" , "type":"note"  },
+{"id" : "2" , "info" : {"note" : "Bb", "octave" : "2", "string":"1", "position": "6" } , "timeshift":"6.5" , "type":"note"  },
+{"id" : "3" , "info" : {"note" : "B", "octave" : "2", "string":"1", "position": "7" } , "timeshift": "8.5" , "type":"note"  },
+{"id" : "4" , "info" : {"note" : "C", "octave" : "3", "string":"1", "position": "8" }, "timeshift":"10.5" , "type":"note"  },
+{"id" : "5" , "type" : "endbar" , "timeshift" : "12.75"}
+/*,
 {"id" : "6" , "info" : {"note" : "E", "octave" : "2", "string":"2", "position": "5" } , "timeshift":"4.0" , "type":"note"  },
 {"id" : "7" , "info" : {"note" : "F", "octave" : "2", "string":"2", "position": "6" }, "timeshift":"4.5" , "type":"note"  },
 {"id" : "8" , "info" : {"note" : "Gb", "octave" : "2", "string":"2", "position": "7"}, "timeshift":"5.0" , "type":"note"  },
 {"id" : "9" , "info" : {"note" : "G", "octave" : "2", "string":"2", "position": "8"}, "timeshift":"5.5" , "type":"note"  },
-{"id" : "10", "type":"endbar","timeshift" : "5.75"}] } );
+{"id" : "10", "type":"endbar","timeshift" : "5.75"}*/] } );
 			
 
 var tabsData = parseData(dataTemp);
@@ -275,10 +276,10 @@ function showResult() {
 		for (var j = 0; j < dataResult.data.length; j++) {
 			if(dataResult.data[j].type != "endbar") {
 				if(dataResult.data[j].info.note == tabsData.data.data[i].info.note) {
-					if(Math.abs(parseFloat(dataResult.data[j].timeshift) - parseFloat(tabsData.data.data[i].timeshift))< 0.25){
+					//if(Math.abs(parseFloat(dataResult.data[j].timeshift)  - parseFloat(tabsData.data.data[i].timeshift))< 0.25){
 						thereIsTrue = true;
 						break;
-					}
+					//}
 				}
 			}
 		}
