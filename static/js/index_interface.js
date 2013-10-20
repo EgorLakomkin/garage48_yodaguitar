@@ -36,6 +36,9 @@ app = {
             //$(this).attr('src', src);
         }
     },
+    finishLoading : function(){
+        $("#ajax-loader").fadeOut(fast);
+    },
     onPlayBtnClick : function(){
 //        if(app.playerState == 0){
 //            app.startPlaying();
