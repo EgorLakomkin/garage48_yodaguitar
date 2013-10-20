@@ -58,7 +58,7 @@ function draw(canvas) {
 	}
 	*/
 	
-	if(currentFrame > dataTabs.length) {
+	if(currentFrame > tabsData.length) {
 		isStop = 1;
 		stopCallback();
 		return;
