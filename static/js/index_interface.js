@@ -34,11 +34,15 @@ app = {
         }
     },
     onPlayBtnClick : function(){
-        if(app.playerState == 0){
-            app.startPlaying();
-        }
-        if(app.playerState == 1){
-            stopSong();
+//        if(app.playerState == 0){
+//            app.startPlaying();
+//        }
+//        if(app.playerState == 1){
+//            stopSong();
+//        }
+        switch (app.playerState){
+            case 0 : app.startPlaying(); break;
+            case 1 : stopSong(); break;
         }
     },
     test:function(){
