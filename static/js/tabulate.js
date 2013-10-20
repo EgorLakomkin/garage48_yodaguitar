@@ -270,6 +270,16 @@ function showResult() {
 	*/
 	var resultMetric = 0;
 	var deltaShift = 1;
+	var maxForSong = 0;
+	for(var i = 0; i < tabsData.data.data.length; i++ ) {
+		if(i > 0) {
+			deltaShift = tabsData.data.data[i].timeshift - tabsData.data.data[i - 1].timeshift; 
+		}
+		if(deltaShift == 0) {
+			deltaShift = 0.1;
+		}
+		maxForSong+=10 * 1.0/(deltashift);
+	}
 	for(var i = 0; i < tabsData.data.data.length; i++ ) {
 		if(tabsData.data.data[i].type == "endbar"){
 			drawEndBar(tabsData.data.data[i].timeshift / deltaW);
@@ -300,7 +310,7 @@ function showResult() {
 			drawNote(tabsData.data.data[i].timeshift / deltaW , deltaH * parseInt( tabsData.data.data[i].info.string) , tabsData.data.data[i].info.position, -1 );
 		}
 	}
-	var obj = { 'score' : resultMetric , 'result': result };
+	var obj = { 'score' : resultMetric , 'result': 10000 * (result / maxForSong) };
 	if(result > dataResult.data.length) {
 		obj.result = 1;
 	} else {
