@@ -271,14 +271,19 @@ function showResult() {
 	var resultMetric = 0;
 	var deltaShift = 1;
 	var maxForSong = 0;
+	var prevIndex = -1;
 	for(var i = 0; i < tabsData.data.data.length; i++ ) {
+		if(tabsData.data.data[i].type == "endbar") {
+			continue;
+		}
 		if(i > 0) {
-			deltaShift = tabsData.data.data[i].timeshift - tabsData.data.data[i - 1].timeshift; 
+			deltaShift = tabsData.data.data[i].timeshift - tabsData.data.data[prevIndex].timeshift; 
 		}
 		if(deltaShift == 0) {
 			deltaShift = 0.1;
 		}
-		maxForSong+=10 * 1.0/(deltashift);
+		maxForSong+=10 * 1.0/(deltaShift);
+		prevIndex++;
 	}
 	for(var i = 0; i < tabsData.data.data.length; i++ ) {
 		if(tabsData.data.data[i].type == "endbar"){
