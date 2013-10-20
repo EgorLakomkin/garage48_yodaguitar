@@ -268,10 +268,18 @@ function showResult() {
 		}
 	}
 	*/
+	var resultMetric = 0;
+	var deltaShift = 1;
 	for(var i = 0; i < tabsData.data.data.length; i++ ) {
 		if(tabsData.data.data[i].type == "endbar"){
 			drawEndBar(tabsData.data.data[i].timeshift / deltaW);
 			continue;
+		}
+		if(i > 0) {
+			deltaShift = tabsData.data.data[i].timeshift - tabsData.data.data[i - 1].timeshift; 
+		}
+		if(deltaShift == 0) {
+			deltaShift = 0.1;
 		}
 		var thereIsTrue = false;
 		for (var j = 0; j < dataResult.data.length; j++) {
@@ -280,6 +288,7 @@ function showResult() {
 					//if(Math.abs(parseFloat(dataResult.data[j].timeshift)  - parseFloat(tabsData.data.data[i].timeshift))< 0.25){
 						thereIsTrue = true;
 						break;
+						resultMetric += 10 * 1.0/(deltaShift) ; 
 					//}
 				}
 			}
@@ -291,11 +300,13 @@ function showResult() {
 			drawNote(tabsData.data.data[i].timeshift / deltaW , deltaH * parseInt( tabsData.data.data[i].info.string) , tabsData.data.data[i].info.position, -1 );
 		}
 	}
+	var obj = { 'score' : resultMetric , 'result': result };
 	if(result > dataResult.data.length) {
-		return 1;
+		obj.result = 1;
 	} else {
-		return 0;
+		obj.result = 0;
 	}
+	return obj;
 }
 var stopCallback ;
 function setStopCallback(callback){
