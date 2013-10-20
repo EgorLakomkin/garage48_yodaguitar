@@ -41,9 +41,10 @@ app = {
        if(playerResult== 1){
            $("#resultImage").attr("src","/static/img/yoda.png"); //good
        }else{
-           $("#resultImage").attr("src","/static/img/yoda.png"); //bad
+           $("#resultImage").attr("src","/static/img/logo.png"); //bad
        }
         alert(playerScore)
+
         $("#playerScore").text("Your score: "+playerScore);
 
         $("#resultModal").modal("show");
