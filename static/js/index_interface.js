@@ -30,14 +30,14 @@ app = {
                 image.fadeIn('fast');
             });
       //      alert(app.playerState+" stop");
-            $("#ajax-loader").fadeIn(fast);
+            $("#ajax-loader").fadeIn("fast");
             //alert(app.playerState+" stop");
 	    stopRecording();
             //$(this).attr('src', src);
         }
     },
     finishLoading : function(){
-        $("#ajax-loader").fadeOut(fast);
+        $("#ajax-loader").fadeOut("fast");
     },
     onPlayBtnClick : function(){
 //        if(app.playerState == 0){
