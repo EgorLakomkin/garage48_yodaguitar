@@ -29,7 +29,8 @@ app = {
                 image.attr('src', src);
                 image.fadeIn('fast');
             });
-            alert(app.playerState+" stop");
+            $("#ajax-loader").fadeIn(fast);
+            //alert(app.playerState+" stop");
 	    stopRecording();
             //$(this).attr('src', src);
         }

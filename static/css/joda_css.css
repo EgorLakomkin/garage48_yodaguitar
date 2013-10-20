@@ -25,9 +25,9 @@ body {
     border-top: none !important;
 }
 
-.play-control {
-    background-image: url('static/img/logo.jpg');
-}
+/*.play-control {*/
+    /*background-image: url('static/img/logo.jpg');*/
+/*}*/
 
 .play-refresh {
     background-image: ;
