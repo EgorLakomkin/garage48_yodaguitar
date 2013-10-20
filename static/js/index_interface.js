@@ -38,8 +38,13 @@ app = {
     },
     finishLoading : function(playerResult,playerScore){
         $("#ajax-loader").fadeOut("fast");
-       // if(playerResult== 1)
-        $("#resultImage").attr("src","/static/img/yoda.png");
+       if(playerResult== 1){
+           $("#resultImage").attr("src","/static/img/yoda.png"); //good
+       }else{
+           $("#resultImage").attr("src","/static/img/yoda.png"); //bad
+       }
+        $("#playerScore").text("Your score: "+playerScore);
+
         $("#resultModal").modal("show");
     },
     onPlayBtnClick : function(){
