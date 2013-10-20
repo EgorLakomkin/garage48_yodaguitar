@@ -43,6 +43,7 @@ app = {
        }else{
            $("#resultImage").attr("src","/static/img/yoda.png"); //bad
        }
+        alert(playerScore)
         $("#playerScore").text("Your score: "+playerScore);
 
         $("#resultModal").modal("show");
