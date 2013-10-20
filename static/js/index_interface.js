@@ -39,11 +39,11 @@ app = {
     finishLoading : function(playerResult,playerScore){
         $("#ajax-loader").fadeOut("fast");
        if(playerResult== 1){
-           $("#resultImage").attr("src","/static/img/yoda.png"); //good
+           $("#resultImage").attr("src","/static/img/good.png"); //good
        }else{
-           $("#resultImage").attr("src","/static/img/logo.png"); //bad
+           $("#resultImage").attr("src","/static/img/bad.png"); //bad
        }
-        alert(playerScore)
+        //alert(playerScore);
 
         $("#playerScore").text("Your score: "+playerScore);
 
