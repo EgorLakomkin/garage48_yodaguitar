@@ -19,7 +19,7 @@ app = {
             //$(this).attr('src', src);
 	startRecording();
     },
-    stoppedPlaying : function(playerResult){//callback from canvas
+    stoppedPlaying : function(){//callback from canvas
         app.playerState = 0;
         var src = "/static/img/play.png";
         {
@@ -36,9 +36,10 @@ app = {
             //$(this).attr('src', src);
         }
     },
-    finishLoading : function(){
+    finishLoading : function(playerResult,playerScore){
         $("#ajax-loader").fadeOut("fast");
-        $("#resultImage").attr("src","/statix/img/yoda.png");
+       // if(playerResult== 1)
+        $("#resultImage").attr("src","/static/img/yoda.png");
         $("#resultModal").modal("show");
     },
     onPlayBtnClick : function(){
