@@ -220,10 +220,10 @@ function startRecording(button) {
         }).done(function(data) {
             // print the output from the upload.php script	    
 			dataResult = data.result;//JSON.parse(data.result);
-			showResult();
+			var result = showResult();
 			isShowRes = true;
 			console.log(data);
-			finishLoadingCallback();
+			finishLoadingCallback(result);
         });
 }
 function setFinishLoadingCallbak(callback) {
