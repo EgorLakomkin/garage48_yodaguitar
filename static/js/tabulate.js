@@ -58,7 +58,8 @@ function draw(canvas) {
 	}
 	*/
 	
-	if(currentFrame > tabsData.length) {
+	if(currentTimeShift > tabsData.maxTimeShift) {
+		currentTimeShift  = 0;
 		isStop = 1;
 		stopCallback();
 		return;

@@ -98,6 +98,130 @@
 
 
 </script>
+<script type="text/javascript">
+
+
+
+function output(str) {
+    console.log(str);
+}
+
+// Events
+// init() once the page has finished loading.
+//window.onload = init;
+
+var context;
+var source;
+var analyser;
+var buffer;
+var audioBuffer;
+var recorder;
+var analyserView1;
+
+function error() {
+    alert('Stream generation failed.');
+    finishJSTest();
+}
+
+function getUserMedia(dictionary, callback) {
+    try {
+        navigator.webkitGetUserMedia(dictionary, callback, error);
+    } catch (e) {
+        alert('webkitGetUserMedia threw exception :' + e);
+        finishJSTest();
+    }
+}
+
+function gotStream(stream) {
+    s = stream;
+    initAudio(stream);
+}
+/*
+function init() {
+    
+    getUserMedia({audio:true}, gotStream);
+
+    MIDI.loadPlugin({
+	  soundfontUrl: "/static/soundfont/",
+	  instrument: "acoustic_grand_piano",
+	  callback: function() {
+		  setInterval(draw, 10 , canvas);
+
+	  }
+  });
+}
+*/
+function initAudio(stream) {
+    context = new webkitAudioContext();
+    
+    analyser = context.createAnalyser();
+    analyser.fftSize = 2048;
+
+    // Connect audio processing graph:
+    // live-input -> analyser -> destination
+
+    // Create an AudioNode from the stream.
+    var mediaStreamSource = context.createMediaStreamSource(stream);    
+    mediaStreamSource.connect(analyser);
+    analyser.connect(context.destination);
+    recorder = new Recorder(mediaStreamSource);
+}
+
+
+function startRecording(button) {
+    recorder && recorder.record();
+    button.disabled = true;
+    button.nextElementSibling.disabled = false;
+
+    setInterval(draw, 10 , canvas);
+  }
+
+  function stopRecording(button) {
+    recorder && recorder.stop();
+    //button.disabled = true;
+   // button.previousElementSibling.disabled = false;
+    
+	recorder.exportWAV(function(blob) {
+      var url = URL.createObjectURL(blob);
+      var li = document.createElement('li');
+      var au = document.createElement('audio');
+      var hf = document.createElement('a');
+      
+      au.controls = true;
+      au.src = url;
+      hf.href = url;
+	 
+      hf.download = new Date().toISOString() + '.wav';
+      hf.innerHTML = hf.download;
+      li.appendChild(au);
+      li.appendChild(hf);
+      recordingslist.appendChild(li);
+	  upload(blob, hf.download); 
+    });
+  
+    
+    recorder.clear();
+  }
+
+  function upload(blobOrFile, filename) {
+    var fd = new FormData();
+        fd.append('fname', filename);
+        fd.append('data', blobOrFile);
+		
+        $.ajax({
+            type: 'POST',
+            url: '/analyze',
+            data: fd,
+            processData: false,
+            contentType: false
+        }).done(function(data) {
+            // print the output from the upload.php script
+            console.log(data);
+        });
+}
+  
+
+</script>
 
 <script type="text/javascript" >
 
@@ -116,10 +240,12 @@
 
             }
         });
+        getUserMedia({audio:true}, gotStream);
+  
 
         $("#play-btn").on({"click":function(event){
 
-            app.onPlayBtnClick();
+            app.onPlayBtnClick(stopRecording);
 //            var src = ($(this).attr('src') === "/static/img/play.png")
 //                    ? "/static/img/refresh.png"
 //                    : "/static/img/play.png";

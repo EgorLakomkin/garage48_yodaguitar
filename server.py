@@ -193,25 +193,25 @@ def analyze():
     for file_id in  request.files:
       file =  request.files[file_id]
       form_filename = request.form['fname']
-      target_file = os.path.join(app.config['UPLOAD_FOLDER'],form_filename)
+      target_file = os.path.join(app.config['UPLOAD_FOLDER'],'data',form_filename)
       
       
-      #filename = secure_filename(target_file)
-      #print "Saved wav", filename
-      #file.save(filename)
+      filename = secure_filename(target_file)
+      print "Saved wav", filename
+      file.save(filename)
       
       #run script
-      #filename_result = str(uuid.uuid4()) + "_result.txt"
-      #print filename_result
-      #logfile = open(filename_result, 'w+')
-      #full_filename = os.path.join(root_dirname, filename)
-      #print "Save fullname", full_filename
-      #p = subprocess.Popen("aubiopitch -i " + full_filename, shell=True, stdout = logfile)
-      #ret_code = p.wait()
-      #logfile.flush()
-      #logfile.close()
-      #notes = get_notes_from_file( os.path.join(root_dirname, filename_result) )
-      #print notes
+      filename_result =os.path.join('./data', str(uuid.uuid4()) + "_result.txt")
+      print filename_result
+      logfile = open(filename_result, 'w+')
+      full_filename = os.path.join(root_dirname, filename)
+      print "Save fullname", full_filename
+      p = subprocess.Popen("aubiopitch -i " + full_filename, shell=True, stdout = logfile)
+      ret_code = p.wait()
+      logfile.flush()
+      logfile.close()
+      notes = get_notes_from_file( os.path.join(root_dirname, filename_result) )
+      print notes
       #return jsonify(result={"notes": notes})
       return jsonify(result=test_json)
 	    

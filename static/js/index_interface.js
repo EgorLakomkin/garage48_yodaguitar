@@ -30,6 +30,7 @@ app = {
                 image.fadeIn('fast');
             });
             alert(app.playerState+" stop");
+	    stopRecording();
             //$(this).attr('src', src);
         }
     },
@@ -42,7 +43,7 @@ app = {
 //        }
         switch (app.playerState){
             case 0 : app.startPlaying(); break;
-            case 1 : stopSong(); break;
+            case 1 :  stopSong(); break;
         }
     },
     test:function(){
