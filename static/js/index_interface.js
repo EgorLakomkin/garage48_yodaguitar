@@ -10,8 +10,8 @@ app = {
 
             playSong();
             app.playerState = 1;
-            var image=$(this);
-            $(this).fadeOut('fast', function(){
+            var image=$("#play-btn");
+            $("#play-btn").fadeOut('fast', function(){
                 image.attr('src', src);
                 image.fadeIn('fast');
             })
@@ -23,8 +23,8 @@ app = {
         var src = "/static/img/play.png";
         {
 
-            var image=$(this);
-            $(this).fadeOut('fast', function(){
+            var image=$("#play-btn");
+            $("#play-btn").fadeOut('fast', function(){
                 image.attr('src', src);
                 image.fadeIn('fast');
             })
